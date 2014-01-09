@@ -26,6 +26,14 @@ group :development do
   gem "binding_of_caller"
 end
 
+group :test, :development do
+  gem 'rspec-rails', "~> 2.13.2"
+end
+
+group :test do
+  gem 'capybara', "2.0.2"
+end
+
 gem 'jquery-rails'
 gem "slim-rails"
 
