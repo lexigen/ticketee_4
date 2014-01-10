@@ -3,3 +3,4 @@ div id="ticket"
   = simple_format(@ticket.description)
 
 p = link_to "Edit Ticket", [:edit, @project, @ticket]
+p = link_to "Delete Ticket", [@project, @ticket], method: :delete, data: { confirm: "Are you sure?" }
