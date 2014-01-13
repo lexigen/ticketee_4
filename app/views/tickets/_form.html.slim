@@ -5,8 +5,8 @@
         = pluralize(@ticket.errors.count, "error")
         |  prohibited this ticket from being saved:
       ul
-      - @ticket.errors.full_messages.each do |msg|
-        li= msg
+        - @ticket.errors.full_messages.each do |msg|
+          li= msg
   p
     = f.label :title
     br
