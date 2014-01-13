@@ -1,2 +1,4 @@
-h1 Users#show
-p Find me in app/views/users/show.html.slim
+p = link_to "Edit Profile", edit_user_path(@user)
+
+p= @user.name
+p= @user.email
