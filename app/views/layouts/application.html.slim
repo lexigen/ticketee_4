@@ -16,5 +16,9 @@ html
       .flash id=key
         = value
 
-    nav= link_to "Sign up", new_user_path
+    nav
+      ul
+        li = link_to "Sign up", new_user_path
+        li = link_to "Sign in", signin_path
+        
     = yield
