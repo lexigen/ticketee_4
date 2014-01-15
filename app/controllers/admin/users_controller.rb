@@ -35,7 +35,7 @@ class Admin::UsersController < Admin::BaseController
       params[:user].delete(:password)
       params[:user].delete(:password_confirmation)
     end
-    
+
     if @user.update(user_params)
       flash[:notice] = "User has been updated."
       redirect_to admin_users_path
@@ -43,6 +43,16 @@ class Admin::UsersController < Admin::BaseController
       flash[:alert] =  "User has not been updated."
       render 'edit'
     end
+  end
+
+  def destroy
+    if @user == current_user
+      flash[:alert] = "You cannot delete yourself!"
+    else
+      @user.destroy
+      flash[:notice] = "User has been deleted."
+    end
+    redirect_to admin_users_path
   end
 
   private
