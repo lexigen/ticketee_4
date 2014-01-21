@@ -19,6 +19,7 @@ html
     nav
       - if current_user
         | Signed in as #{current_user.email}
+        p
         - admins_only do
           = link_to "Admin", admin_root_path
       - else

@@ -31,16 +31,11 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def update
-    if params[:user][:password].blank?
-      params[:user].delete(:password)
-      params[:user].delete(:password_confirmation)
-    end
-
-    if @user.update(user_params)
+    if @user.update(user_params.merge(password_confirmation: user_params[:password]))
       flash[:notice] = "User has been updated."
       redirect_to admin_users_path
     else
-      flash[:alert] =  "User has not been updated."
+      flash[:alert] = "User has not been updated."
       render 'edit'
     end
   end
