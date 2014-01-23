@@ -1,8 +1,10 @@
 require 'spec_helper'
 
 feature 'Creating Projects' do
+  let!(:admin_user) { FactoryGirl.create(:admin_user) }
+  let(:project) { FactoryGirl.create(:project) }
   before do
-    sign_in_as!(FactoryGirl.create(:admin_user))
+    sign_in_as!(admin_user)
     visit '/'
     click_link 'New Project'
   end
